@@ -2,6 +2,9 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 
+const hostname = '127.0.0.1';
+const port = 8080;
+
 const server = http.createServer((req, res) => {
     if (req.url === '/')
     {
@@ -45,6 +48,6 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(3000, () => {
-  console.log("You're connected!");
-});
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`)
+})
